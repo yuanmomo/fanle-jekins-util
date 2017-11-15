@@ -6,7 +6,7 @@
 # load configurations
 download_url=$1
 download_directory=`cat config.json | jq '.["download-directory"]'|  sed -e 's/^"//' -e 's/"$//'`
-majiang_desktop_path=`cat config.json | jq '.["majiang-desktop-path"]' | sed -e 's/^"//' -e 's/"$//'`
+majiang_desktop=`cat config.json | jq '.["majiang-desktop-path"]' | sed -e 's/^"//' -e 's/"$//'`
 
 if [ "${download_url}"x = "x" ] ; then
     exit 1
@@ -25,10 +25,10 @@ wget ${download_url}
 find . -name "*.zip"| xargs unzip
 projectName=`ls | grep -v 'zip'`
 
-rm -rf ${majiang_desktop_path}/src
-rm -rf ${majiang_desktop_path}/res
-mv $projectName/res ${majiang_desktop_path}
-mv $projectName/src ${majiang_desktop_path}
+rm -rf ${majiang_desktop}/src
+rm -rf ${majiang_desktop}/res
+mv $projectName/res ${majiang_desktop}
+mv $projectName/src ${majiang_desktop}
 
 ## replace the UserInfo.lua
 ## replace the Network.lua

@@ -7,6 +7,8 @@
   "start_job_delay_seconds": 10,
   "refresh_period": 5,
 
+  "zip-download-url": "http://192.168.1.232/download/zip/",
 
-  "zip-download-url": "http://192.168.1.232/download/zip/"
+  "download-directory":"download",
+  "majiang-desktop-path":"/Applications/majiang-desptop.app/Contents/Resources"
 }

@@ -1,5 +1,19 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # encoding: utf-8
+
+
+"""
+Request build job of Jenkins-Python-Alfred.
+
+@version    :   1.0
+@author     :   MoMo
+@license    :   Apache Licence
+@contact    :   yuanhongbin9090@gmail.com
+@site       :   http://yuanmomo.net
+@software   :   PyCharm
+@file       :   util.py
+@time       :   15/11/2017 17:39
+"""
 
 import sys
 from jenkinsapi import jenkins as japi
@@ -14,55 +28,51 @@ from workflow import Workflow3
 def main(wf):
     args = wf.args
 
-    config = util.loadJsonConfig();
+    # load configurations
+    config = util.load_json_config();
 
-    apiServer = japi.Jenkins(config["jenkins-url"],username=config["username"], password=config["password"])
-    server = jks(config["jenkins-url"],username=config["username"], password=config["password"])
+    api_server = japi.Jenkins(config["jenkins-url"], username=config["username"], password=config["password"])
+    server = jks(config["jenkins-url"], username=config["username"], password=config["password"])
 
     retry_count = 0
 
     while True:
         # refresh job status
-        jobInfo = server.get_job_info(args[0])
-        if jobInfo == None :
+        job_info = server.get_job_info(args[0])
+        if job_info:
             sys.exit(3);
 
-        if retry_count >= config["retry-count"] :
+        if retry_count >= config["retry-count"]:
             print "Build job is not available!!!!"
             sys.exit(4)
-        if not jobInfo.get("buildable") :
+        if not job_info.get("buildable"):
             time.sleep(10)
             retry_count += 1
-        else :
+        else:
             break
 
     # get next build id
-    job = apiServer.get_job(args[0])
+    job = api_server.get_job(args[0])
     next_build_number = job.get_next_build_number();
 
     # start to build
     server.build_job(args[0])
 
     # waite server to put job in queue
-    time.sleep(10)
+    time.sleep(config["start_job_delay_seconds"])
 
     while True:
-        time.sleep(5)
+        time.sleep(config["refresh_period"])
         status = job.get_build(next_build_number).get_status();
-        if status == None :
+        if status:
             continue
-        if status == u"SUCCESS" :
-            print "%s%s.zip" % (config["zip-download-url"],string.split(args[0],".")[0])
+        if status == u"SUCCESS":
+            print "%s%s.zip" % (config["zip-download-url"], string.split(args[0], ".")[0])
             break
         else:
             print('Build [%s] failed!!' % next_build_number);
 
-    # wf.send_feedback()
 
 if __name__ == '__main__':
-    # Create a global `Workflow` object
     wf = Workflow3()
-    # Call your entry function via `Workflow.run()` to enable its helper
-    # functions, like exception catching, ARGV normalization, magic
-    # arguments etc.
     sys.exit(wf.run(main))

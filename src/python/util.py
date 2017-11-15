@@ -2,9 +2,9 @@
 # encoding: utf-8
 
 
-"This is a module of "
-
 """
+Util of Jenkins-Python-Alfred.
+
 @version    :   1.0
 @author     :   MoMo
 @license    :   Apache Licence 
@@ -18,46 +18,67 @@
 import sys
 import os
 import json
-import util
 
 debug = True
 
+config_file = "../config.json"
 
-config_file="../config.json";
 
-def loadJsonConfig() :
+def load_json_config():
+    """
+    load configurations from config file.
+    :return:
+    """
     config = json.loads(read(config_file))
-    if config == None :
+    if config:
         sys.exit(2)
-    return config;
+    return config
 
-def showJobListResult(wf, source, params=[]):
+
+def add_job_list_to_dlfred(wf, source, params=[]):
+    """
+    add job list to Alfred item list.
+    :param wf:
+    :param source:
+    :param params:
+    :return:
+    """
     if len(params) > 0:
         for job in source:
             name = job['name']
             if name.find(params[0]) > -1:
-                wf.add_item(title=job['name'],subtitle= job['url'], copytext=job['url'], valid=True, arg=job['name'])
+                wf.add_item(title=job['name'], subtitle=job['url'], copytext=job['url'], valid=True, arg=job['name'])
     else:
         for job in source:
-            wf.add_item(title=job['name'], subtitle= job['url'], copytext=job['url'],valid=True, arg=job['name'])
+            wf.add_item(title=job['name'], subtitle=job['url'], copytext=job['url'], valid=True, arg=job['name'])
 
-def read(fileName):
-    if not os.path.exists(fileName):
-        print "ERROR: file %s not exists." % (fileName)
+
+def read(file_name):
+    """
+        read file content to String.
+    :param file_name:
+    :return:
+    """
+    if not os.path.exists(file_name):
+        print "ERROR: file %s not exists." % (file_name)
         return
-    file = open(fileName, "r")
-    fileContent = file.read()
-    file.close()
-    return fileContent
+    f = open(file_name, "r")
+    file_content = f.read()
+    f.close()
+    return file_content
 
 
-def write(fileName, content):
-    # check file exists
-    if not os.path.exists(fileName):
-        file = open(fileName, "w")
-        file.write(content)
-        file.close()
-
+def write(file_name, content):
+    """
+    write to file.
+    :param file_name:
+    :param content:
+    :return:
+    """
+    if not os.path.exists(file_name):
+        f = open(file_name, "w")
+        f.write(content)
+        f.close()
 
 
 if __name__ == '__main__':

@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>net.yuanmomo.util.python.jenkins</string>
+	<string>net.yuanmomo.util.jekins</string>
 	<key>category</key>
-	<string>Tools</string>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict/>
 	<key>createdby</key>
@@ -15,7 +15,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>jenkins-util</string>
+	<string>fanle-jekins-util</string>
 	<key>objects</key>
 	<array/>
 	<key>readme</key>

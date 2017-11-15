@@ -1,0 +1,6 @@
+{
+  "jenkins-url":"http://192.168.1.232:8080/jenkins",
+  "username":"test",
+  "password":"test",
+  "cache-file" : "cache.txt"
+}

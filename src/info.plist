@@ -20,12 +20,22 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>9F50ECD2-9D8A-4E5A-9570-AA1E48B62AE2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>DEEC6275-AA41-472C-BCA0-E03B82AA1AC1</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>62408FBA-0E27-4FB9-A1E1-2A616EE70B6D</string>
+				<string>612EDA70-639E-461D-8CA6-A930D5D05CB4</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -55,6 +65,46 @@
 	<string>fanle-jekins-util</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Build Finish!!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>AED3569B-AA24-4E5B-B8A1-C80244FAD916</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>http://192.168.1.232:8080/jenkins/job/{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>612EDA70-639E-461D-8CA6-A930D5D05CB4</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -106,40 +156,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>autopaste</key>
+				<key>concurrently</key>
 				<false/>
-				<key>clipboardtext</key>
-				<string>{query}</string>
-				<key>transient</key>
-				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>echo "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.clipboard</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>62408FBA-0E27-4FB9-A1E1-2A616EE70B6D</string>
+			<string>9F50ECD2-9D8A-4E5A-9570-AA1E48B62AE2</string>
 			<key>version</key>
 			<integer>2</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>Build Result!!</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
-			<key>uid</key>
-			<string>AED3569B-AA24-4E5B-B8A1-C80244FAD916</string>
-			<key>version</key>
-			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -173,30 +208,37 @@
 		<key>3F568260-0AE4-40AC-8BBC-E0F4966C6F32</key>
 		<dict>
 			<key>xpos</key>
-			<integer>420</integer>
+			<integer>390</integer>
 			<key>ypos</key>
-			<integer>420</integer>
+			<integer>240</integer>
 		</dict>
-		<key>62408FBA-0E27-4FB9-A1E1-2A616EE70B6D</key>
+		<key>612EDA70-639E-461D-8CA6-A930D5D05CB4</key>
 		<dict>
 			<key>xpos</key>
-			<integer>420</integer>
+			<integer>390</integer>
 			<key>ypos</key>
-			<integer>250</integer>
+			<integer>60</integer>
+		</dict>
+		<key>9F50ECD2-9D8A-4E5A-9570-AA1E48B62AE2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>740</integer>
+			<key>ypos</key>
+			<integer>240</integer>
 		</dict>
 		<key>AED3569B-AA24-4E5B-B8A1-C80244FAD916</key>
 		<dict>
 			<key>xpos</key>
-			<integer>890</integer>
+			<integer>730</integer>
 			<key>ypos</key>
-			<integer>350</integer>
+			<integer>20</integer>
 		</dict>
 		<key>DEEC6275-AA41-472C-BCA0-E03B82AA1AC1</key>
 		<dict>
 			<key>xpos</key>
-			<integer>140</integer>
+			<integer>120</integer>
 			<key>ypos</key>
-			<integer>160</integer>
+			<integer>190</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

@@ -6,6 +6,7 @@ from jenkinsapi import jenkins as japi
 from jenkins import Jenkins as jks
 import time
 import util
+import string
 
 from workflow import Workflow3
 
@@ -19,7 +20,6 @@ def main(wf):
     server = jks(config["jenkins-url"],username=config["username"], password=config["password"])
 
     retry_count = 0
-    jobInfo = None
 
     while True:
         # refresh job status
@@ -52,12 +52,12 @@ def main(wf):
         if status == None :
             continue
         if status == u"SUCCESS" :
-            print "SUCCESS"
+            print "%s%s.zip" % (config["zip-download-url"],string.split(args[0],".")[0])
             break
         else:
             print('Build [%s] failed!!' % next_build_number);
 
-    wf.send_feedback()
+    # wf.send_feedback()
 
 if __name__ == '__main__':
     # Create a global `Workflow` object

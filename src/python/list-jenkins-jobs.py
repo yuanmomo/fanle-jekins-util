@@ -48,7 +48,7 @@ def main(wf):
     # Get args from Workflow, already in normalized Unicode
     args = wf.args
 
-    config = json.loads(read('../config.json'))
+    config = json.loads(read('config.json'))
     if config == None :
         sys.exit(2)
 
@@ -67,12 +67,13 @@ def main(wf):
 
     if job_json != None and len(job_json) > 0 :
         write(config["cache-file"], job_json)
-    print job_list;
 
+    wf.send_feedback()
 
 if __name__ == '__main__':
     # Create a global `Workflow` object
     wf = Workflow()
+
     # Call your entry function via `Workflow.run()` to enable its helper
     # functions, like exception catching, ARGV normalization, magic
     # arguments etc.

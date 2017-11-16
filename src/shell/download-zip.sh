@@ -35,6 +35,8 @@ mv $projectName/encrypt/src ${majiang_desktop}
 ## replace the UserInfo.lua
 ## replace the Network.lua
 ## replace the MainScene.lua
+## create userif.lua
+echo "return \"110\"" > ${majiang_desktop}/src/userid.lua
 
 # delete download zip file and mj directory
 rm -rf *.zip* $projectName

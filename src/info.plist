@@ -402,7 +402,7 @@ ps -ef | grep majiang| grep desktop |  awk '{print $2}' | xargs kill -9</string>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>script</key>
-				<string>rm -rf cache.txt</string>
+				<string>rm -rf python/cache.txt</string>
 				<key>scriptargtype</key>
 				<integer>0</integer>
 				<key>scriptfile</key>

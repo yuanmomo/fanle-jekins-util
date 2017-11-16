@@ -2,6 +2,7 @@
 #
 #
 
+PATH=/usr/local/bin/:$PATH
 
 # load configurations
 download_url=$1
@@ -19,23 +20,26 @@ fi
 cd download
 
 # download file
-wget ${download_url}
+wget -q ${download_url}
 
 # unzip and copy to majiang-desktop
-find . -name "*.zip"| xargs unzip
-projectName=`ls | grep -v 'zip'`
+find . -name "*.zip"| xargs unzip --qq
+projectName=`ls | grep -v 'zip' | sed -e 's/^"//' -e 's/"$//'`
 
 rm -rf ${majiang_desktop}/src
 rm -rf ${majiang_desktop}/res
-mv $projectName/res ${majiang_desktop}
-mv $projectName/src ${majiang_desktop}
+
+mv $projectName/encrypt/res ${majiang_desktop}
+mv $projectName/encrypt/src ${majiang_desktop}
 
 ## replace the UserInfo.lua
 ## replace the Network.lua
 ## replace the MainScene.lua
 
 # delete download zip file and mj directory
-rm -rf $projectName.zip* $projectName
+rm -rf *.zip* $projectName
+
+echo "Deploy Done!!!!"
 
 
 

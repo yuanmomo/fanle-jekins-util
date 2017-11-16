@@ -31,6 +31,58 @@
 				<false/>
 			</dict>
 		</array>
+		<key>428F9CAE-705A-4FB8-B843-FB015AEB6C57</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>91948C78-E2B1-4EBC-B74E-A7BFDA6FF679</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>95678832-BEC0-4C35-8407-45070EF87225</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>6A860BAC-513F-4E37-BF06-F9C4782BC7B2</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>9F50ECD2-9D8A-4E5A-9570-AA1E48B62AE2</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>DF53E121-64B7-4CC1-9A6C-33420101F6D8</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B2BF0CC0-69D4-492C-B688-FE6C5D3944A9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>131CD121-DAC1-40CF-9EB2-625B54EC3247</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>DEEC6275-AA41-472C-BCA0-E03B82AA1AC1</key>
 		<array>
 			<dict>
@@ -156,25 +208,23 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>concurrently</key>
+				<key>lastpathcomponent</key>
 				<false/>
-				<key>escaping</key>
-				<integer>102</integer>
-				<key>script</key>
-				<string>echo "{query}"</string>
-				<key>scriptargtype</key>
-				<integer>0</integer>
-				<key>scriptfile</key>
-				<string></string>
-				<key>type</key>
-				<integer>0</integer>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>Deploy!!!</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.script</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>9F50ECD2-9D8A-4E5A-9570-AA1E48B62AE2</string>
+			<string>DF53E121-64B7-4CC1-9A6C-33420101F6D8</string>
 			<key>version</key>
-			<integer>2</integer>
+			<integer>1</integer>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -200,11 +250,185 @@
 			<key>version</key>
 			<integer>2</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>. shell/download-zip.sh {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>9F50ECD2-9D8A-4E5A-9570-AA1E48B62AE2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#!/bin/bash
+
+num={query}
+
+
+if [ "${num}temp" == "temp" ] ; then
+   num=1
+fi
+
+. shell/start-ma-jiang.sh  $num</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>91948C78-E2B1-4EBC-B74E-A7BFDA6FF679</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>mj</string>
+				<key>subtext</key>
+				<string>starting.....</string>
+				<key>text</key>
+				<string>start the app client of majiang</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>428F9CAE-705A-4FB8-B843-FB015AEB6C57</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>#!/bin/bash
+
+
+ps -ef | grep majiang| grep desktop |  awk '{print $2}' | xargs kill -9</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>6A860BAC-513F-4E37-BF06-F9C4782BC7B2</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>kmj</string>
+				<key>subtext</key>
+				<string>kill.....</string>
+				<key>text</key>
+				<string>kill ma jiang client</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>95678832-BEC0-4C35-8407-45070EF87225</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>cjb</string>
+				<key>subtext</key>
+				<string>delete the cache of Jenkins job list.</string>
+				<key>text</key>
+				<string>clean cache</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B2BF0CC0-69D4-492C-B688-FE6C5D3944A9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>rm -rf cache.txt</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>131CD121-DAC1-40CF-9EB2-625B54EC3247</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>131CD121-DAC1-40CF-9EB2-625B54EC3247</key>
+		<dict>
+			<key>xpos</key>
+			<integer>390</integer>
+			<key>ypos</key>
+			<integer>660</integer>
+		</dict>
 		<key>3F568260-0AE4-40AC-8BBC-E0F4966C6F32</key>
 		<dict>
 			<key>xpos</key>
@@ -212,26 +436,61 @@
 			<key>ypos</key>
 			<integer>240</integer>
 		</dict>
+		<key>428F9CAE-705A-4FB8-B843-FB015AEB6C57</key>
+		<dict>
+			<key>xpos</key>
+			<integer>120</integer>
+			<key>ypos</key>
+			<integer>380</integer>
+		</dict>
 		<key>612EDA70-639E-461D-8CA6-A930D5D05CB4</key>
 		<dict>
 			<key>xpos</key>
 			<integer>390</integer>
 			<key>ypos</key>
-			<integer>60</integer>
+			<integer>80</integer>
+		</dict>
+		<key>6A860BAC-513F-4E37-BF06-F9C4782BC7B2</key>
+		<dict>
+			<key>xpos</key>
+			<integer>390</integer>
+			<key>ypos</key>
+			<integer>530</integer>
+		</dict>
+		<key>91948C78-E2B1-4EBC-B74E-A7BFDA6FF679</key>
+		<dict>
+			<key>xpos</key>
+			<integer>380</integer>
+			<key>ypos</key>
+			<integer>380</integer>
+		</dict>
+		<key>95678832-BEC0-4C35-8407-45070EF87225</key>
+		<dict>
+			<key>xpos</key>
+			<integer>110</integer>
+			<key>ypos</key>
+			<integer>530</integer>
 		</dict>
 		<key>9F50ECD2-9D8A-4E5A-9570-AA1E48B62AE2</key>
 		<dict>
 			<key>xpos</key>
-			<integer>740</integer>
+			<integer>630</integer>
 			<key>ypos</key>
 			<integer>240</integer>
 		</dict>
 		<key>AED3569B-AA24-4E5B-B8A1-C80244FAD916</key>
 		<dict>
 			<key>xpos</key>
-			<integer>730</integer>
+			<integer>620</integer>
 			<key>ypos</key>
-			<integer>20</integer>
+			<integer>70</integer>
+		</dict>
+		<key>B2BF0CC0-69D4-492C-B688-FE6C5D3944A9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>110</integer>
+			<key>ypos</key>
+			<integer>660</integer>
 		</dict>
 		<key>DEEC6275-AA41-472C-BCA0-E03B82AA1AC1</key>
 		<dict>
@@ -239,6 +498,13 @@
 			<integer>120</integer>
 			<key>ypos</key>
 			<integer>190</integer>
+		</dict>
+		<key>DF53E121-64B7-4CC1-9A6C-33420101F6D8</key>
+		<dict>
+			<key>xpos</key>
+			<integer>880</integer>
+			<key>ypos</key>
+			<integer>240</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>

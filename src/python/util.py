@@ -30,7 +30,7 @@ def load_json_config():
     :return:
     """
     config = json.loads(read(config_file))
-    if config:
+    if not config:
         sys.exit(2)
     return config
 

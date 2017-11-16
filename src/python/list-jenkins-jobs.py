@@ -42,7 +42,7 @@ def main(wf):
 
     util.add_job_list_to_dlfred(wf, job_list, args)
 
-    if not job_json and len(job_json) > 0:
+    if job_json and len(job_json) > 0:
         util.write(config["cache-file"], job_json)
 
     wf.send_feedback()

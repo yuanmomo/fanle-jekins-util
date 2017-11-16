@@ -39,7 +39,7 @@ def main(wf):
     while True:
         # refresh job status
         job_info = server.get_job_info(args[0])
-        if job_info:
+        if not job_info:
             sys.exit(3);
 
         if retry_count >= config["retry-count"]:
@@ -64,7 +64,7 @@ def main(wf):
     while True:
         time.sleep(config["refresh_period"])
         status = job.get_build(next_build_number).get_status();
-        if status:
+        if not status:
             continue
         if status == u"SUCCESS":
             print "%s%s.zip" % (config["zip-download-url"], string.split(args[0], ".")[0])

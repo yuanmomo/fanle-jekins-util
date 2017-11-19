@@ -1,5 +1,5 @@
 # Jenkins-util
-##### No longer rely on the browser to open jenkins, just a few word commands; also provid the alfred-workflow
+###### No longer rely on the browser to open jenkins, just a few word commands; also provid the alfred-workflow
 
 ### Dependencies
 
